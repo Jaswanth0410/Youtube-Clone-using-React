@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    background-color: crimson;
+    width: 100%;
+    /* color: rgb(0, 0, 0); */
+    /* justify-content: space-between; */
+    height: 40px;
+}
+ ul {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: white;
+    list-style-type: none;
+}
+
+li{
+    margin-top: 10px;
+    
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+a:hover{
+    color: gold;
+}

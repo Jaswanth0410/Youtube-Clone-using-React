@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+div{
+    background-color: crimson;
+    text-align: center;
+    font-size: 12px;
+    /* margin-top: 10px;
+    height: 100px; */
+}
