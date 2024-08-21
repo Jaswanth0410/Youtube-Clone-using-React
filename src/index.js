@@ -1,20 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { useState,useEffect } from 'react';
-import {useCallback} from 'react';
+// import { useState,useEffect } from 'react';
+// import {useCallback} from 'react';
 // import './index.css';
-// import App from './App.js'
+import App from './App.js'
 // import Header from './Components/header.js'
 // import Footer from './Components/footer.js'
 // import './App.js';
 // import reportWebVitals from './reportWebVitals';
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
 // class demo{
 //   methodone(){
@@ -277,24 +277,24 @@ import {useCallback} from 'react';
  
 //  ReactDOM.render(<Examplerender />, document.getElementById('root'));
 
-const FirstComponent = () => {
-  const [count, setCount] = useState(0);
+// const FirstComponent = () => {
+//   const [count, setCount] = useState(0);
 
-  const handleClick = useCallback(() => {
-    console.log("Button clicked");
-  }, []);
+//   const handleClick = useCallback(() => {
+//     console.log("Button clicked");
+//   }, []);
 
-  const FirstChildComponent = React.memo(({ onClick }) => {
-    console.log("FirstChildComponent");
-    return <button onClick={onClick}>Click Here</button>;
-  });
+//   const FirstChildComponent = React.memo(({ onClick }) => {
+//     console.log("FirstChildComponent");
+//     return <button onClick={onClick}>Click Here</button>;
+//   });
 
-  return (
-    <div>
-      <FirstChildComponent onClick={handleClick} />
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-    </div>
-  );
-};
+//   return (
+//     <div>
+//       <FirstChildComponent onClick={handleClick} />
+//       <button onClick={() => setCount(count + 1)}>Increment</button>
+//     </div>
+//   );
+// };
 
-ReactDOM.render(<FirstComponent />, document.getElementById("root"));
+// ReactDOM.render(<FirstComponent />, document.getElementById("root"));
