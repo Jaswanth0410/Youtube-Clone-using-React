@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { useState,useEffect } from 'react';
+import {useCallback} from 'react';
 // import './index.css';
 // import App from './App.js'
 // import Header from './Components/header.js'
@@ -202,36 +203,98 @@ import { useState,useEffect } from 'react';
 // ReactDOM.render(<ExampleRender />,document.getElementById("root"));
 
 
-function Userdemo(){
-    const [users,setUsers] = useState([]);
-    const [loading,setLoading] = useState(true);
+// function Userdemo(){
+//     const [users,setUsers] = useState([]);
+//     const [loading,setLoading] = useState(true);
 
-useEffect(()=>{
-fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response => response.json())
-      .then(data =>{
-      setUsers(data);
-      setLoading(false);
-      })
-    .catch (error =>{
-        console.error("if it is not loading will be error message");
+// useEffect(()=>{
+// fetch('https://jsonplaceholder.typicode.com/users')
+//       .then(response => response.json())
+//       .then(data =>{
+//       setUsers(data);
+//       setLoading(false);
+//       })
+//     .catch (error =>{
+//         console.error("if it is not loading will be error message");
 
-        setLoading(false);
-    });
-},[]);
-    if(loading){
-        return <p>Loading.....</p>;
-    }
+//         setLoading(false);
+//     });
+// },[]);
+//     if(loading){
+//         return <p>Loading.....</p>;
+//     }
 
-    return(
-        <div>
-        <h1>List out the Users in API</h1>
-        <ul>
-            {users.map(user => (
-                <li key={user.id}>{user.name} Email.id:{user.email}</li>
-            ))}
-        </ul>
-        </div>
-    );
-}
-ReactDOM.render(<Userdemo />,document.getElementById("root")) ;
+//     return(
+//         <div>
+//         <h1>List out the Users in API</h1>
+//         <ul>
+//             {users.map(user => (
+//                 <li key={user.id}>{user.name} Email.id:{user.email}</li>
+//             ))}
+//         </ul>
+//         </div>
+//     );
+// }
+
+// ReactDOM.render(<Userdemo />,document.getElementById("root")) ;
+
+// const Ternary = (props) => {
+//     return (
+//         <div>
+//             {props.valid? <h2>You are valid User</h2> : <h2>You are invalid User</h2>}
+//         </div>
+//     )
+// }
+
+// export default Ternary;
+
+// ReactDOM.render(<Ternary />,document.getElementById("root"))
+
+// import  {useMemo } from 'react';
+
+ 
+//  function Examplerender() {
+//      const [number, setNumber] = useState(0);
+ 
+//      function squareNum(num) {
+//          console.log("calculating successfully");
+//          return Math.pow(num, 3);
+//      }
+ 
+//      const result = useMemo(() => squareNum(number), [number]);
+ 
+//      return (
+//          <div>
+//              <input 
+//                  type='number' 
+//                  value={number} 
+//                  onChange={(e) => setNumber(Number(e.target.value))} 
+//              />
+//              <h1>Cube of the number: {result}</h1>
+//          </div>
+//      );
+//  }
+ 
+//  ReactDOM.render(<Examplerender />, document.getElementById('root'));
+
+const FirstComponent = () => {
+  const [count, setCount] = useState(0);
+
+  const handleClick = useCallback(() => {
+    console.log("Button clicked");
+  }, []);
+
+  const FirstChildComponent = React.memo(({ onClick }) => {
+    console.log("FirstChildComponent");
+    return <button onClick={onClick}>Click Here</button>;
+  });
+
+  return (
+    <div>
+      <FirstChildComponent onClick={handleClick} />
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+};
+
+ReactDOM.render(<FirstComponent />, document.getElementById("root"));
