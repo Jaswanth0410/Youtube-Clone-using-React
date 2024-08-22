@@ -131,7 +131,7 @@ form input[type="checkbox"] {
 
 
 form button[type="submit"] {
-  background-color: #007bff;
+  background-color: blue;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -145,10 +145,7 @@ form button[type="submit"] {
 /* Submit Button Hover Effect */
 form button[type="submit"]:hover {
   background-color:purple;
-
-
 }
-
 
 form {
   display: grid;
@@ -159,3 +156,4 @@ form {
 form div.full-width {
   grid-column: span 3;
 }
+

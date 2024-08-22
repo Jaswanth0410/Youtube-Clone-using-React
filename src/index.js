@@ -1,20 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {useState,useReducer} from 'react';
 // import { useState,useEffect } from 'react';
 // import {useCallback} from 'react';
 // import './index.css';
-import App from './App.js'
+// import App from './App.js'
 // import Header from './Components/header.js'
 // import Footer from './Components/footer.js'
 // import './App.js';
 // import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>
+// );
 
 // class demo{
 //   methodone(){
@@ -298,3 +299,33 @@ root.render(
 // };
 
 // ReactDOM.render(<FirstComponent />, document.getElementById("root"));
+
+const initialState = { count: 0 };
+
+function Welcome(state, action) {
+  switch (action.category) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    case 'reset':
+      return { count: 0 };
+    default:
+      throw new Error();
+  }
+}
+
+function CounterOne() {
+  const [state, dispatch] = React.useReducer(Welcome, initialState);
+
+  return (
+    <div>
+      <p>Count: {state.count}</p>
+      <button onClick={() => dispatch({ category: 'increment' })}>Increment</button>
+      <button onClick={() => dispatch({ category: 'decrement' })}>Decrement</button>
+      <button onClick={() => dispatch({ category: 'reset' })}>Reset</button>
+    </div>
+  );
+}
+
+ReactDOM.render(<CounterOne />, document.getElementById("root"));
