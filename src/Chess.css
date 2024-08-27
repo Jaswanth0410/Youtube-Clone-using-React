@@ -1,0 +1,47 @@
+/* .chess{
+    /* border-spacing: 0;
+    border-collapse: collapse;
+
+}
+
+.chess td{
+    border: 1px solid;
+    width: 2em;
+    height: 2em;
+}
+.chess .white{
+    background: grey;
+}
+
+.chess .black{
+    background: lightgreen;
+}  */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.chess {
+    border-collapse: collapse;
+}
+
+.chess td {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 32px; /* Make icons visible */
+}
+
+.chess .white {
+    background-color: grey;
+}
+
+.chess .black {
+    background-color: green;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {useState,useReducer} from 'react';
+// import {useState,useReducer} from 'react';
 // import { useState,useEffect } from 'react';
 // import {useCallback} from 'react';
 // import './index.css';
@@ -8,14 +8,15 @@ import {useState,useReducer} from 'react';
 // import Header from './Components/header.js'
 // import Footer from './Components/footer.js'
 // import './App.js';
+import Chess from './Chess'
 // import reportWebVitals from './reportWebVitals';
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Chess />
+  </React.StrictMode>
+);
 
 // class demo{
 //   methodone(){
@@ -299,33 +300,74 @@ import {useState,useReducer} from 'react';
 // };
 
 // ReactDOM.render(<FirstComponent />, document.getElementById("root"));
+// React Reducer
+// step 1
+// const initialState = { count: 0 };
+// // step 2
+// function Welcome(state, action) {
+//   switch (action.category) {
+//     case 'increment':
+//       return { count: state.count + 1 };
+//     case 'decrement':
+//       return { count: state.count - 1 };
+//     case 'reset':
+//       return { count: 0 };
+//     default:
+//       throw new Error();
+//   }
+// }
+// // step 3
+// function CounterOne() {
+//   const [state, dispatch] = React.useReducer(Welcome, initialState);
 
-const initialState = { count: 0 };
+//   return (
+//     <div>
+//       <p>Count: {state.count}</p>
+//       <button onClick={() => dispatch({ category: 'increment' })}>Increment</button>
+//       <button onClick={() => dispatch({ category: 'decrement' })}>Decrement</button>
+//       <button onClick={() => dispatch({ category: 'reset' })}>Reset</button>
+//     </div>
+//   );
+// }
 
-function Welcome(state, action) {
-  switch (action.category) {
-    case 'increment':
-      return { count: state.count + 1 };
-    case 'decrement':
-      return { count: state.count - 1 };
-    case 'reset':
-      return { count: 0 };
-    default:
-      throw new Error();
-  }
-}
+// ReactDOM.render(<CounterOne />, document.getElementById("root"));
 
-function CounterOne() {
-  const [state, dispatch] = React.useReducer(Welcome, initialState);
+// TODO List
 
-  return (
-    <div>
-      <p>Count: {state.count}</p>
-      <button onClick={() => dispatch({ category: 'increment' })}>Increment</button>
-      <button onClick={() => dispatch({ category: 'decrement' })}>Decrement</button>
-      <button onClick={() => dispatch({ category: 'reset' })}>Reset</button>
-    </div>
-  );
-}
+// const initialState = { count: '' };
+// function Buttons(state, action) {
+//   switch (action.category) {
+//     case 'Add':
+//       return { count: action.load  };
+//     case 'delete':
+//       return { count: '' };
+//     case 'edit':
+//       return { count: '' };
+//     default:
+//       throw new Error();
+//   }
+// }
+// // step 3
+// function ToDo() {
+//   const [state, dispatch] = React.useReducer(Buttons, initialState);
 
-ReactDOM.render(<CounterOne />, document.getElementById("root"));
+//   return (
+//     <div>
+//       {/* <p>Task: {state.count}</p> */}
+//       <input type='text' placeholder='Enter your work' id='input'></input>
+      
+//       <button onClick={() =>{
+//         const inputValue = document.getElementById("input").value;
+//          dispatch({ category: 'Add',load:inputValue })}}>ADD</button>
+
+//       <li>{state.count.map(inputValue =>(
+//         <p>{state.value}</p>
+//       ))}</li>
+
+//       <button className='dlt'  onClick={() => dispatch({ category: 'delete' })}>DELETE</button>
+
+//       <button className='edit' onClick={() => dispatch({ category: 'edit' })}>EDIT</button>
+//     </div>
+//   );
+// }
+// ReactDOM.render(<ToDo />, document.getElementById("root"));
